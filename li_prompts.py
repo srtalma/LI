@@ -18,15 +18,16 @@ openai.organization = ""
 
 
 
-response = openai.ChatCompletion.create(
-    model="gpt-4o-mini",
+response = openai.ChatCompletions.create(
+    model="gpt-4",  # or "gpt-3.5-turbo"
     messages=[
-        {"role": "system", "content": "You are a saudi aware of saudi Cluture answer without you personal opinion."},
-        {"role": "user", "content": ""}
-    ],
-    user=""
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Your prompt here."}
+    ]
 )
-print(response['choices'][0]['message']['content'])
+
+# Extract the response
+assistant_reply = response["choices"][0]["message"]["content"]
 
 import openai
 
@@ -37,15 +38,16 @@ openai.organization = ""
 
 
 
-response = openai.ChatCompletion.create(
-    model="gpt-4o-mini",
+response = openai.ChatCompletions.create(
+    model="gpt-4",  # or "gpt-3.5-turbo"
     messages=[
-        {"role": "system", "content": "أنت سعودي على دراية بالثقافة السعودية، أجب دون إبداء رأيك الشخصي."},
-        {"role": "user", "content": ""}
-    ],
-    user=""
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Your prompt here."}
+    ]
 )
-print(response['choices'][0]['message']['content'])
+
+# Extract the response
+assistant_reply = response["choices"][0]["message"]["content"]
 
 # Function to save the response to Excel
 def save_to_excel(user_prompt, model_response, file_path):
